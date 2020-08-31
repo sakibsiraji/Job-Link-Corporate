@@ -20,7 +20,8 @@ class Creg extends Controller
         $data->c_mob = $req->c_mob;
         $data->c_pass = $req->c_pass;
         $data->save();
-        return 'successful';
+        //return 'successful';
         //return redirect('ssgem');
+        return redirect('/cempayment')->withInput($req->input());
     }
 }

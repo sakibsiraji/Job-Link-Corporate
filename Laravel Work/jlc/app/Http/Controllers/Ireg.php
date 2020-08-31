@@ -22,6 +22,6 @@ class Ireg extends Controller
         $data->i_pass = $req->i_pass;
         $data->save();
         //return 'successful';
-        return redirect('ssiem');
+        return redirect('/iempayment')->withInput($req->input());
     }
 }

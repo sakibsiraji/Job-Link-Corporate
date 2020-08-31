@@ -23,6 +23,6 @@ class Semreg extends Controller
         $data->seskill_id = $req->seskill_id;
         $data->save();
         //return 'successful';
-        return redirect('sssem');
+        return redirect('/sepayment')->withInput($req->input());
     }
 }
