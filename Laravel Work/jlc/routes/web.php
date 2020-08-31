@@ -87,4 +87,14 @@ Route::get('/admin', function () {
     return view('admin_login');
 });
 
+
 Route::post('/contact', 'ContactMsg@csbmt')->name('contact.submit');
+
+Route::get('/gempayment','GePaymentController@index');
+Route::get('/sepayment','SePaymentController@index');
+Route::get('/iempayment','IePaymentController@index');
+Route::get('/cempayment','CePaymentController@index');
+
+Route::post('/success','paymentController@success')->name('success');
+
+Route::post('/fail','paymentController@fail')->name('fail');

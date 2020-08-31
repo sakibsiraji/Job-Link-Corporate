@@ -23,6 +23,6 @@ class Gemreg extends Controller
         $data->geskill_id = $req->geskill_id;
         $data->save();
         //return 'successful';
-        return redirect('ssgem');
+        return redirect('/gempayment')->withInput($req->input());
     }
 }
