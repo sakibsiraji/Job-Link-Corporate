@@ -9,6 +9,20 @@ class Creg extends Controller
 {
     function save(Request $req)
     {
+
+        $validatedData = $req->validate([
+            'c_name'             => 'required',                        // just a normal required validation
+            'c_email'            => 'required|email',     // required and must be unique in the ducks table
+           
+            'c_address'         => 'required',
+            'c_cs'         => 'required',
+            'c_ps'         => 'required',
+            'c_c'         => 'required',
+            'c_mob'         => 'required',
+            'c_pass'         => 'required',
+            
+        ]);
+
         //print_r($req->input());
         $data = new CempregModel;
         $data->c_name = $req->c_name;
@@ -22,6 +36,6 @@ class Creg extends Controller
         $data->save();
         //return 'successful';
         //return redirect('ssgem');
-        return redirect('/cempayment')->withInput($req->input());
+       // return redirect('/cempayment')->withInput($req->input());
     }
 }

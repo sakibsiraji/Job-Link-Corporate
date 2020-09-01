@@ -9,6 +9,19 @@ class Ireg extends Controller
 {
     function save(Request $req)
     {
+
+        $validatedData = $req->validate([
+            'i_name'             => 'required',                        // just a normal required validation
+            'i_email'            => 'required|email',     // required and must be unique in the ducks table
+            'i_dob'         => 'required',
+            'i_address'         => 'required',
+            'i_cs'         => 'required',
+            'i_ps'         => 'required',
+            'i_c'         => 'required',
+            'i_mob'         => 'required',
+            'i_pass'         => 'required',
+            
+        ]);
         //print_r($req->input());
         $data = new IempregModel;
         $data->i_name = $req->i_name;
@@ -22,6 +35,6 @@ class Ireg extends Controller
         $data->i_pass = $req->i_pass;
         $data->save();
         //return 'successful';
-        return redirect('/iempayment')->withInput($req->input());
+        //return redirect('/iempayment')->withInput($req->input());
     }
 }

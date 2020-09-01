@@ -9,6 +9,20 @@ class Semreg extends Controller
 {
     function save(Request $req)
     {
+
+        $validatedData = $req->validate([
+            'se_name'             => 'required',                        // just a normal required validation
+            'se_email'            => 'required|email',     // required and must be unique in the ducks table
+            'se_dob'         => 'required',
+            'se_address'         => 'required',
+            'se_cs'         => 'required',
+            'se_ps'         => 'required',
+            'se_c'         => 'required',
+            'se_mob'         => 'required',
+            'se_pass'         => 'required',
+            'seskill_id'         => 'required',
+        ]);
+
         //print_r($req->input());
         $data = new SempregModel;
         $data->se_name = $req->se_name;
@@ -23,6 +37,6 @@ class Semreg extends Controller
         $data->seskill_id = $req->seskill_id;
         $data->save();
         //return 'successful';
-        return redirect('/sepayment')->withInput($req->input());
+        //return redirect('/sepayment')->withInput($req->input());
     }
 }

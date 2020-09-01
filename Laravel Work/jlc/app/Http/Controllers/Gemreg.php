@@ -5,10 +5,26 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\GempregModel;
 
+
 class Gemreg extends Controller
 {
     function save(Request $req)
     {
+        $validatedData = $req->validate([
+            'ge_name'             => 'required',                        // just a normal required validation
+            'ge_email'            => 'required|email',     // required and must be unique in the ducks table
+            'ge_dob'         => 'required',
+            'ge_address'         => 'required',
+            'ge_cs'         => 'required',
+            'ge_ps'         => 'required',
+            'ge_c'         => 'required',
+            'ge_mob'         => 'required',
+            'ge_pass'         => 'required',
+            'geskill_id'         => 'required',
+        ]);
+
+       
+    
         //print_r($req->input());
         $data = new GempregModel;
         $data->ge_name = $req->ge_name;
@@ -24,5 +40,6 @@ class Gemreg extends Controller
         $data->save();
         //return 'successful';
         return redirect('/gempayment')->withInput($req->input());
-    }
+    
+} 
 }
