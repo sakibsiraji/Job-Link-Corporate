@@ -186,64 +186,70 @@
 									<div class="featured-box featured-box-primary text-left mt-0">
 										<div class="box-content">
                       <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">Register as a general employee</h4>
-                    
+					  @if(session('success'))
+					  <div class="alert alert-success">
+							  {{  session('success')  }}
+				  </div>
+		  @endif
                       <form action="gemreg" id="" method="post" class="needs-validation">
 					  {{@csrf_field()}}
                         <div class="form-row">
                           <div class="form-group col">
                             <label for='ge_name' class="font-weight-bold text-dark text-2">Full Name</label>
 							<input type="text" class="form-control form-control-lg" name="ge_name" >
-							@if ($errors->any('ge_name')) <p class="alert alert-danger">{{ $errors->first('ge_name') }}</p>@endif
+							@if ($errors->has('ge_name')) <p class="alert alert-danger">{{ $errors->first('ge_name') }}</p>
+						
+							@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col">
                             <label for='ge_email' class="font-weight-bold text-dark text-2">Personal E-mail Address</label>
 							<input type="text" class="form-control form-control-lg" name="ge_email" >
-							@if ($errors->any('ge_email')) <p class="alert alert-danger">{{ $errors->first('ge_email') }}</p>@endif
+							@if ($errors->has('ge_email')) <p class="alert alert-danger">{{ $errors->first('ge_email') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label for='ge_pass' class="font-weight-bold text-dark text-2">Password</label>
 							<input type="password" class="form-control form-control-lg" name="ge_pass" >
-							@if ($errors->any('ge_pass')) <p class="alert alert-danger">{{ $errors->first('ge_pass') }}</p> @endif
+							@if ($errors->has('ge_pass')) <p class="alert alert-danger">{{ $errors->first('ge_pass') }}</p> @endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label for='ge_dob' class="font-weight-bold text-dark text-2">Date of Birth</label>
 							<input type="date" class="form-control form-control-lg" name="ge_dob" >
-							@if ($errors->any('ge_dob')) <p class="alert alert-danger">{{ $errors->first('ge_dob') }}</p>@endif
+							@if ($errors->has('ge_dob')) <p class="alert alert-danger">{{ $errors->first('ge_dob') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col">
                             <label for='ge_address' class="font-weight-bold text-dark text-2">Address</label>
 							<input type="text" class="form-control form-control-lg" name="ge_address" >
-							@if ($errors->any('ge_address')) <p class="alert alert-danger">{{ $errors->first('ge_address') }}</p>@endif
+							@if ($errors->has('ge_address')) <p class="alert alert-danger">{{ $errors->first('ge_address') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label for='ge_cs' class="font-weight-bold text-dark text-2">City/State</label>
 							<input type="text" class="form-control form-control-lg" name="ge_cs" >
-							@if ($errors->any('ge_cs')) <p class="alert alert-danger">{{ $errors->first('ge_cs') }}</p>@endif
+							@if ($errors->has('ge_cs')) <p class="alert alert-danger">{{ $errors->first('ge_cs') }}</p>@endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label for='ge_ps' class="font-weight-bold text-dark text-2">Postal Code</label>
 							<input type="text" class="form-control form-control-lg" name="ge_ps" >
-							@if ($errors->any('ge_ps')) <p class="alert alert-danger">{{ $errors->first('ge_ps') }}</p>@endif
+							@if ($errors->has('ge_ps')) <p class="alert alert-danger">{{ $errors->first('ge_ps') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label for='ge_c' class="font-weight-bold text-dark text-2">Country</label>
 							<input type="text" class="form-control form-control-lg" name="ge_c" >
-							@if ($errors->any('ge_c')) <p class="alert alert-danger">{{ $errors->first('ge_c') }}</p>@endif
+							@if ($errors->has('ge_c')) <p class="alert alert-danger">{{ $errors->first('ge_c') }}</p>@endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label for='ge_mob' class="font-weight-bold text-dark text-2">Mobile Number (With Country Code)</label>
 							<input type="text" class="form-control form-control-lg" name="ge_mob" >
-							@if ($errors->any('ge_mob')) <p class="alert alert-danger">{{ $errors->first('ge_mob') }}</p>@endif
+							@if ($errors->has('ge_mob')) <p class="alert alert-danger">{{ $errors->first('ge_mob') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">

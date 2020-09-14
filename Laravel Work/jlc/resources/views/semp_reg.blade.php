@@ -186,64 +186,68 @@
 									<div class="featured-box featured-box-primary text-left mt-0">
 										<div class="box-content">
                       <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">Register as a special skilled employee</h4>
-                      
+					  @if(session('success'))
+					  <div class="alert alert-success">
+							  {{  session('success')  }}
+				  </div>
+		  @endif
                       <form action="semreg" id="" method="post" class="needs-validation">
 					  {{@csrf_field()}}
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">Full Name</label>
 							<input type="text" name="se_name" class="form-control form-control-lg" >
-							@if ($errors->any('se_name')) <p class="alert alert-danger">{{ $errors->first('se_name') }}</p>@endif
+							@if ($errors->has('se_name')) <p class="alert alert-danger">{{ $errors->first('se_name') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">E-mail Address</label>
 							<input type="text" name="se_email" class="form-control form-control-lg" >
-							@if ($errors->any('se_email')) <p class="alert alert-danger">{{ $errors->first('se_email') }}</p>@endif
+							@if ($errors->has('se_email')) <p class="alert alert-danger">{{ $errors->first('se_email') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Password</label>
 							<input type="password" name="se_pass" class="form-control form-control-lg" >
-							@if ($errors->any('se_pass')) <p class="alert alert-danger">{{ $errors->first('se_pass') }}</p>@endif
+							@if ($errors->has('se_pass')) <p class="alert alert-danger">{{ $errors->first('se_pass') }}</p>@endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Date of Birth</label>
 							<input type="date" name="se_dob" class="form-control form-control-lg" >
-							@if ($errors->any('se_dob')) <p class="alert alert-danger">{{ $errors->first('se_dob') }}</p>@endif
+							@if ($errors->has('se_dob')) <p class="alert alert-danger">{{ $errors->first('se_dob') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">Address</label>
 							<input type="text" name="se_address" class="form-control form-control-lg" >
-							@if ($errors->any('se_address')) <p class="alert alert-danger">{{ $errors->first('se_address') }}</p>@endif
+							@if ($errors->has('se_address')) <p class="alert alert-danger">{{ $errors->first('se_address') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">City/State</label>
 							<input type="text" name="se_cs" class="form-control form-control-lg" >
-							@if ($errors->any('se_cs')) <p class="alert alert-danger">{{ $errors->first('se_cs') }}</p>@endif
+							@if ($errors->has('se_cs')) <p class="alert alert-danger">{{ $errors->first('se_cs') }}</p>@endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Postal Code</label>
 							<input type="text" name="se_ps" class="form-control form-control-lg" >
-							@if ($errors->any('se_ps')) <p class="alert alert-danger">{{ $errors->first('se_ps') }}</p>@endif
+							@if ($errors->has('se_ps')) <p class="alert alert-danger">{{ $errors->first('se_ps') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Country</label>
 							<input type="text" name="se_c" class="form-control form-control-lg" >
-							@if ($errors->any('se_c')) <p class="alert alert-danger">{{ $errors->first('se_c') }}</p>@endif
+							@if ($errors->has('se_c')) <p class="alert alert-danger">{{ $errors->first('se_c') }}</p>@endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Mobile Number (With Country Code)</label>
 							<input type="text" name="se_mob" class="form-control form-control-lg" >
-							@if ($errors->any('se_mob')) <p class="alert alert-danger">{{ $errors->first('se_mob') }}</p>@endif
+							@if ($errors->has('se_mob')) <p class="alert alert-danger">{{ $errors->first('se_mob') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">

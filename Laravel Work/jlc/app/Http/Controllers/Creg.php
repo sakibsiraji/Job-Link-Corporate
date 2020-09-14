@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CempregModel;
+use Illuminate\Support\Facades\Hash;
 
 class Creg extends Controller
 {
@@ -12,7 +13,7 @@ class Creg extends Controller
 
         $validatedData = $req->validate([
             'c_name'             => 'required',                        // just a normal required validation
-            'c_email'            => 'required|email',     // required and must be unique in the ducks table
+            'c_email'            => 'required|email|unique:looshaqeeyahashirkadda',     // required and must be unique in the ducks table
            
             'c_address'         => 'required',
             'c_cs'         => 'required',
@@ -32,8 +33,9 @@ class Creg extends Controller
         $data->c_ps = $req->c_ps;
         $data->c_c = $req->c_c;
         $data->c_mob = $req->c_mob;
-        $data->c_pass = $req->c_pass;
+        $data->c_pass = Hash::make($req->c_pass);
         $data->save();
+        return redirect()->back()->with('success','You are successfully registered');
         //return 'successful';
         //return redirect('ssgem');
        // return redirect('/cempayment')->withInput($req->input());

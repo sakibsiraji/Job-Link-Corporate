@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\IempregModel;
+use Illuminate\Support\Facades\Hash;
 
 class Ireg extends Controller
 {
@@ -12,7 +13,7 @@ class Ireg extends Controller
 
         $validatedData = $req->validate([
             'i_name'             => 'required',                        // just a normal required validation
-            'i_email'            => 'required|email',     // required and must be unique in the ducks table
+            'i_email'            => 'required|email|unique:shaqaaleeyeshaqsiyeed',     // required and must be unique in the ducks table
             'i_dob'         => 'required',
             'i_address'         => 'required',
             'i_cs'         => 'required',
@@ -32,8 +33,9 @@ class Ireg extends Controller
         $data->i_ps = $req->i_ps;
         $data->i_c = $req->i_c;
         $data->i_mob = $req->i_mob;
-        $data->i_pass = $req->i_pass;
+        $data->i_pass = Hash::make($req->i_pass);
         $data->save();
+        return redirect()->back()->with('success','You are successfully registered');
         //return 'successful';
         //return redirect('/iempayment')->withInput($req->input());
     }
