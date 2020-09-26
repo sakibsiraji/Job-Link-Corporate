@@ -185,52 +185,66 @@
 								<div class="col-md-9">
 									<div class="featured-box featured-box-primary text-left mt-0">
 										<div class="box-content">
-                      <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">Register as a company</h4>
+					  <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">Register as a company</h4>
+					  
+					  @if(session('success'))
+					  <div class="alert alert-success">
+							  {{  session('success')  }}
+				  </div>
+		  @endif
                       
                       <form action="creg" id=""  method="post" class="needs-validation">
 					  {{@csrf_field()}}
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">Company Name</label>
-                            <input type="text" name="c_name" class="form-control form-control-lg" required>
+							<input type="text" name="c_name" class="form-control form-control-lg" >
+							@if ($errors->has('c_name')) <p class="alert alert-danger">{{ $errors->first('c_name') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">Company E-mail Address</label>
-                            <input type="text" name="c_email" class="form-control form-control-lg" required>
+							<input type="text" name="c_email" class="form-control form-control-lg" >
+							@if ($errors->has('c_email')) <p class="alert alert-danger">{{ $errors->first('c_email') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">Company Address</label>
-                            <input type="text" name="c_address" class="form-control form-control-lg" required>
+							<input type="text" name="c_address" class="form-control form-control-lg" >
+							@if ($errors->has('c_address')) <p class="alert alert-danger">{{ $errors->first('c_address') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">City/State</label>
-                            <input type="text" name="c_cs" class="form-control form-control-lg" required>
+							<input type="text" name="c_cs" class="form-control form-control-lg" >
+							@if ($errors->has('c_cs')) <p class="alert alert-danger">{{ $errors->first('c_cs') }}</p>@endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Postal Code</label>
-                            <input type="text" name="c_ps" class="form-control form-control-lg" required>
+							<input type="text" name="c_ps" class="form-control form-control-lg" >
+							@if ($errors->has('c_ps')) <p class="alert alert-danger">{{ $errors->first('c_ps') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Country</label>
-                            <input type="text" name="c_c" class="form-control form-control-lg" required>
+							<input type="text" name="c_c" class="form-control form-control-lg" >
+							@if ($errors->has('c_c')) <p class="alert alert-danger">{{ $errors->first('c_c') }}</p>@endif
                           </div>
                           <div class="form-group col-lg-6">
                             <label class="font-weight-bold text-dark text-2">Password</label>
-                            <input type="password" name="c_pass" class="form-control form-control-lg" required>
+							<input type="password" name="c_pass" class="form-control form-control-lg" >
+							@if ($errors->has('c_pass')) <p class="alert alert-danger">{{ $errors->first('c_pass') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">Company Phone/Mobile Number(With Country Code)</label>
-                            <input type="text" name="c_mob" class="form-control form-control-lg" required>
+							<input type="text" name="c_mob" class="form-control form-control-lg" >
+							@if ($errors->has('c_mob')) <p class="alert alert-danger">{{ $errors->first('c_mob') }}</p>@endif
                           </div>
                         </div>
                         <div class="form-row">

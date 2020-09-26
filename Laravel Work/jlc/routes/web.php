@@ -35,6 +35,8 @@ Route::get('/gelogin', function () {
     return view('gemp_login');
 });
 
+Route::post('/gelogin','GemLoginController@index');
+
 Route::get('/gereg', function () {
     return view('gemp_reg');
 });
@@ -44,6 +46,8 @@ Route::post('gemreg', 'Gemreg@save');
 Route::get('/selogin', function () {
     return view('semp_login');
 });
+
+Route::post('/selogin', 'SeLoginController@index');
 
 Route::get('/sereg', function () {
     return view('semp_reg');
@@ -55,6 +59,8 @@ Route::get('/clogin', function () {
     return view('cemp_login');
 });
 
+Route::post('/clogin', 'CLoginController@index');
+
 Route::get('/creg', function () {
     return view('cemp_reg');
 });
@@ -65,9 +71,14 @@ Route::get('/ilogin', function () {
     return view('iemp_login');
 });
 
+Route::post('/ilogin', 'IloginController@index');
+
 Route::get('/ireg', function () {
     return view('iemp_reg');
 });
+
+
+
 Route::view('ssiem', 'sccs_page');
 Route::post('ireg', 'Ireg@save');
 
@@ -86,6 +97,26 @@ Route::get('/terms', function () {
 Route::get('/admin', function () {
     return view('admin_login');
 });
+Route::group(['middleware'=>['SessionCheck']], function(){
+
+    Route::get('/employee_home', function () {
+        return view('employee_home');
+    });
+});
+
+Route::group(['middleware'=>['CeSessionCheck']], function(){
+
+    Route::get('/employer_home', function () {
+        return view('employer_home');
+    });
+});
+
+
+
+
+
+
+
 
 
 Route::post('/contact', 'ContactMsg@csbmt')->name('contact.submit');

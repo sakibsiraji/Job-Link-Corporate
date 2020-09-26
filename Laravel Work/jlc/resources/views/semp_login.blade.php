@@ -185,39 +185,50 @@
 									<div class="featured-box featured-box-primary text-left mt-0">
 										<div class="box-content">
                       <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">Special Skilled Employee</h4>
-                      <?php
+                      {{-- <?php
                         $message=$this->session->userdata('message');
                         if ($message) {
                           echo $message;
                           $this->session->unset_userdata('message');
                         }
                       ?>
-                      <form action="<?php echo base_url() ?>semployee-login" id="frmSignIn" method="post" class="needs-validation">
-                        <div class="form-row">
-                          <div class="form-group col">
-                            <label class="font-weight-bold text-dark text-2">E-mail Address</label>
-                            <input type="text" name="se_email" class="form-control form-control-lg" required>
-                          </div>
-                        </div>
-                        <div class="form-row">
-                          <div class="form-group col">
-                            <a class="float-right" href="#">(Lost Password?)</a>
-                            <label class="font-weight-bold text-dark text-2">Password</label>
-                            <input type="password" name="se_pass" class="form-control form-control-lg" required>
-                          </div>
-                        </div>
-                        <div class="form-row">
-                          <div class="form-group col-lg-6">
-                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="rememberme">
-                              <label class="custom-control-label text-2" for="rememberme">Remember Me</label>
-                            </div>
-                          </div>
-                          <div class="form-group col-lg-6">
-                            <input type="submit" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
-                          </div>
-                        </div>
-                      </form>
+					  <form action="<?php echo base_url() ?>semployee-login" id="frmSignIn" method="post" class="needs-validation"> --}}
+						<form action="" method="post" >
+							@csrf
+							<div class="form-row">
+							  <div class="form-group col">
+								<label class="font-weight-bold text-dark text-2">E-mail Address</label>
+								<input type="text" name="se_email" class="form-control form-control-lg" >
+							  </div>
+							 
+							</div>
+							@if ($errors->has('se_email')) <p class="alert alert-danger">{{ $errors->first('se_email') }}</p>@endif
+							<div class="form-row">
+							  <div class="form-group col">
+								<a class="float-right" href="#">(Lost Password?)</a>
+								<label class="font-weight-bold text-dark text-2">Password</label>
+								<input type="password" name="se_pass" class="form-control form-control-lg" >
+								@if ($errors->has('se_pass')) <p class="alert alert-danger">{{ $errors->first('se_pass') }}</p>@endif
+							  </div>
+							 
+							</div>
+							@if(session('danger'))
+							<div class="alert alert-danger">
+									{{  session('danger')  }}
+						</div>
+				@endif
+							<div class="form-row">
+							  <div class="form-group col-lg-6">
+								<div class="custom-control custom-checkbox">
+								  <input type="checkbox" class="custom-control-input" id="rememberme">
+								  <label class="custom-control-label text-2" for="rememberme">Remember Me</label>
+								</div>
+							  </div>
+							  <div class="form-group col-lg-6">
+								<input type="submit" class="btn btn-primary btn-modern float-right" data-loading-text="Loading...">
+							  </div>
+							</div>
+						  </form>
 										</div>
 									</div>
 								</div>

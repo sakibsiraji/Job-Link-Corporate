@@ -186,27 +186,31 @@
 									<div class="featured-box featured-box-primary text-left mt-0">
 										<div class="box-content">
                       <h4 class="color-primary font-weight-semibold text-4 text-uppercase mb-3">General Employee</h4>
-                      <?php
-                        $message=$this->session->userdata('message');
-                        if ($message) {
-                          echo $message;
-                          $this->session->unset_userdata('message');
-                        }
-                      ?>
-                      <form action="<?php echo base_url() ?>gemployee-login" id="frmSignIn" method="post" class="needs-validation">
+                       
+						<form action="" method="post" >
+						@csrf
                         <div class="form-row">
                           <div class="form-group col">
                             <label class="font-weight-bold text-dark text-2">E-mail Address</label>
-                            <input type="text" name="ge_email" class="form-control form-control-lg" required>
-                          </div>
-                        </div>
+                            <input type="text" name="ge_email" class="form-control form-control-lg" >
+						  </div>
+						 
+						</div>
+						@if ($errors->has('ge_email')) <p class="alert alert-danger">{{ $errors->first('ge_email') }}</p>@endif
                         <div class="form-row">
                           <div class="form-group col">
                             <a class="float-right" href="#">(Lost Password?)</a>
                             <label class="font-weight-bold text-dark text-2">Password</label>
-                            <input type="password" name="ge_pass" class="form-control form-control-lg" required>
-                          </div>
-                        </div>
+							<input type="password" name="ge_pass" class="form-control form-control-lg" >
+							@if ($errors->has('ge_pass')) <p class="alert alert-danger">{{ $errors->first('ge_pass') }}</p>@endif
+						  </div>
+						 
+						</div>
+						@if(session('danger'))
+						<div class="alert alert-danger">
+								{{  session('danger')  }}
+					</div>
+			@endif
                         <div class="form-row">
                           <div class="form-group col-lg-6">
                             <div class="custom-control custom-checkbox">
